@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuestro Lugar Secreto</title>
+
+<style>
+body{
+  margin:0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#1e1e2f,#3a0ca3);
+  color:white;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+.container{
+  padding:40px 20px;
+}
+
+.hidden{
+  display:none;
+}
+
+input{
+  padding:12px;
+  border-radius:25px;
+  border:none;
+  text-align:center;
+  width:200px;
+}
+
+button{
+  padding:10px 20px;
+  border:none;
+  border-radius:25px;
+  background:#ff4d6d;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:15px;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#ff758f;
+}
+
+.gallery img{
+  width:80%;
+  max-width:250px;
+  border-radius:20px;
+  margin:10px;
+  box-shadow:0 0 15px rgba(255,255,255,0.3);
+}
+
+.section{
+  margin-top:50px;
+}
+
+.card{
+  background:rgba(255,255,255,0.1);
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+}
+
+.heart{
+  position:fixed;
+  color:#ff4d6d;
+  animation:float 6s linear infinite;
+}
+
+@keyframes float{
+  from{transform:translateY(100vh);}
+  to{transform:translateY(-10vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="login">
+  <h2>Este lugar es solo para ti ❤️</h2>
+  <input type="password" id="password" placeholder="Nuestra clave secreta">
+  <br>
+  <button onclick="checkPassword()">Entrar</button>
+</div>
+
+<div class="container hidden" id="content">
+
+  <h1>Siempre Tú 💖</h1>
+  <p>Eres la casualidad más bonita que llegó a mi vida.</p>
+
+  <div class="section">
+    <h2>Mensaje del Día</h2>
+    <div class="card">
+      Hoy te amo más que ayer, pero menos que mañana.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Nuestros Momentos 📸</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/250">
+      <img src="https://via.placeholder.com/250">
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Nuestra Historia 📅</h2>
+    <div class="card">
+      💫 El día que nos conocimos<br><br>
+      💞 Nuestro primer beso<br><br>
+      🌙 Nuestra primera salida
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Carta para ti 💌</h2>
+    <div class="card">
+      Gracias por elegirme todos los días.  
+      Prometo cuidarte, respetarte y hacerte sentir la mujer más especial del mundo.
+    </div>
+  </div>
+
+  <button onclick="surprise()">Siempre tú 💘</button>
+
+</div>
+
+<audio id="music" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function checkPassword(){
+  var pass = document.getElementById("password").value;
+  if(pass === "artemisa"){
+    document.getElementById("login").classList.add("hidden");
+    document.getElementById("content").classList.remove("hidden");
+    document.getElementById("music").play();
+  }else{
+    alert("Clave incorrecta 💔");
+  }
+}
+
+function surprise(){
+  alert("Siempre serás tú, en esta vida y en todas ❤️");
+}
+
+function createHeart(){
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="❤";
+  heart.style.left=Math.random()*100+"vw";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+}
+
+setInterval(createHeart,800);
+</script>
+
+</body>
+</html>
